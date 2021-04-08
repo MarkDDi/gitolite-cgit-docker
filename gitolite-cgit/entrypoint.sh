@@ -26,11 +26,14 @@ if [ ! -f /etc/nginx/conf.d/cgit.conf ]; then
 
   ## Config cgit interface
   cat > /etc/cgitrc <<- EOF
-# Use a virtual-root
+#
+# cgit config
+#
+
 virtual-root=/
 
-# Enable caching of up to 1000 output entries
-cache-size=1000
+# Use a custom logo
+logo=/cgit.png
 
 # Specify the css url
 css=/cgit.css
@@ -41,8 +44,14 @@ enable-git-config=1
 # Show extra links for each repository on the index page
 enable-index-links=1
 
+# Show owner
+enable-index-owner=0
+
 # Enable ASCII art commit history graph on the log pages
 enable-commit-graph=1
+
+# Allow http transport git clone
+enable-http-clone=0
 
 # Show number of affected files per commit on the log pages
 enable-log-filecount=1
@@ -50,18 +59,46 @@ enable-log-filecount=1
 # Show number of added/removed lines per commit on the log pages
 enable-log-linecount=1
 
-# Use a custom logo
-logo=/cgit.png
-
 # Enable statistics per week, month and quarter
 max-stats=quarter
 
-##
-## List of common mimetypes
-##
+# Cache
+cache-about-ttl=15
+cache-dynamic-ttl=5
+cache-repo-ttl=5
+cache-root=/var/cache/cgit
+cache-root-ttl=5
+cache-scanrc-ttl=15
+cache-size=0
+cache-snapshot-ttl=5
+cache-static-ttl=-1
+
+# Sort items in the repo list case sensitively. Default value: "1"
+case-sensitive-sort=1
+
+# Specifies the maximum size of a blob to display HTML for in KBytes. Default value: "0" (limit disabled)
+max-blob-size=2048
+
+# Specifies the number of entries to list per page on the repository index page. Default value: "50".
+max-repo-count=250
+
+
+# Specifies the maximum number of repo description characters to display on the repository index page.
+# Default value: "80"
+max-repodesc-length=80
+
+# Set the default maximum statistics period. Valid values are "week", "month", "quarter" and "year".
+# If unspecified, statistics are disabled. Default value: none
+max-stats=year
+
+#
+# List of common mimetypes
+#
 
 mimetype.gif=image/gif
+mimetype.htm=text/html
 mimetype.html=text/html
+mimetype.ico=image/x-icon
 mimetype.jpg=image/jpeg
 mimetype.jpeg=image/jpeg
 mimetype.md=text/markdown
@@ -72,6 +109,8 @@ mimetype.pbm=image/x-portable-bitmap
 mimetype.pdf=application/pdf
 mimetype.pgm=image/x-portable-graymap
 mimetype.png=image/png
+mimetype.pnm=image/x-portable-anymap
+mimetype.ppm=image/x-portable-pixmap
 mimetype.svg=image/svg+xml
 mimetype.svgz=image/svg+xml
 mimetype.tga=image/x-tga
@@ -86,9 +125,9 @@ mimetype.xpm=image/x-xpixmap
 source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
 about-filter=/usr/lib/cgit/filters/about-formatting.sh
 
-##
-## List of common readmes
-##
+#
+# List of common readmes
+#
 readme=:README.md
 readme=:readme.md
 readme=:README.mkd
