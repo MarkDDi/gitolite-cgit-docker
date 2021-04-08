@@ -28,6 +28,7 @@ EXPOSE 22 80 9418
 WORKDIR /var/lib/git
 
 COPY cgit.css /usr/share/webapps/cgit/cgit.css
+COPY gitolite.rc /var/lib/git/.gitolite.rc
 COPY entrypoint.sh /
 RUN chmod u+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

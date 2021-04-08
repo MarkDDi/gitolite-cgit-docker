@@ -64,9 +64,23 @@ mimetype.gif=image/gif
 mimetype.html=text/html
 mimetype.jpg=image/jpeg
 mimetype.jpeg=image/jpeg
+mimetype.md=text/markdown
+mimetype.mng=video/x-mng
+mimetype.ora=image/openraster
+mimetype.pam=image/x-portable-arbitrarymap
+mimetype.pbm=image/x-portable-bitmap
 mimetype.pdf=application/pdf
+mimetype.pgm=image/x-portable-graymap
 mimetype.png=image/png
 mimetype.svg=image/svg+xml
+mimetype.svgz=image/svg+xml
+mimetype.tga=image/x-tga
+mimetype.tif=image/tiff
+mimetype.tiff=image/tiff
+mimetype.webp=image/webp
+mimetype.xbm=image/x-xbitmap
+mimetype.xcf=image/x-xcf
+mimetype.xpm=image/x-xpixmap
 
 # Enable syntax highlighting and about formatting
 source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
