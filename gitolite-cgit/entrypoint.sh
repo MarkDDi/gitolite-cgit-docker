@@ -35,6 +35,9 @@ cache-size=1000
 # Specify the css url
 css=/cgit.css
 
+# Enable configuration from external management, for example: gitolite
+enable-git-config=1
+
 # Show extra links for each repository on the index page
 enable-index-links=1
 
