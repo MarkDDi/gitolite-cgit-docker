@@ -471,11 +471,11 @@ color: #6CC;
 }
 
 table.diff td div.add {
-color: #2bb34b;
+color: #00E676;
 }
 
 table.diff td div.del {
-color: red;
+color: #F44336;
 }
 
 .sha1 {
@@ -789,4 +789,3 @@ border: none;
 table.ssdiff td.space div {
 min-height: 3em;
 }
-
