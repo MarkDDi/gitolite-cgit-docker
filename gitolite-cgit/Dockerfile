@@ -32,5 +32,7 @@ COPY md2html /usr/lib/cgit/filters/html-converters/md2html
 COPY gitolite.rc /var/lib/git/.gitolite.rc
 COPY entrypoint.sh /
 
+RUN chmod u+x /usr/lib/cgit/filters/html-converters/md2html
 RUN chmod u+x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
