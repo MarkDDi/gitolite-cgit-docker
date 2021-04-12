@@ -157,6 +157,8 @@ readme=:install.txt
 readme=:INSTALL
 readme=:install
 
+snapshots=$CGIT_SNAPSHOT
+
 # Direct cgit to repository location managed by gitolite
 remove-suffix=0
 project-list=/var/lib/git/projects.list
@@ -178,11 +180,6 @@ EOF
   if [ ! -z "$CGIT_DESC" ]; then
       echo "# Set description repository" >> /etc/cgitrc
       echo "root-desc=$CGIT_DESC" >> /etc/cgitrc
-  fi
-
-  if [ ! -z "$CGIT_SNAPSHOT" ]; then
-      echo "# Allow download of tar.gz, tar.bz2, and tar.xz formats" >> /etc/cgitrc
-      echo "snapshots=$CGIT_SNAPSHOT" >> /etc/cgitrc
   fi
 
   # Using highlight syntax
