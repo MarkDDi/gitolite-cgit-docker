@@ -17,7 +17,7 @@ $ docker pull rusian/gitolite-cgit
 2. Run the image with provided environment:
 
 ```console
-$ docker run -e SSH_KEY="$(cat ~/.ssh/id_rsa.pub)" -e SSH_KEY_NAME="$(whoami)" -p 22:22 -p 80:80 -p 9418:9418 -v repo:/var/lib/git/ rusian/gitolite-cgit
+$ docker run -e SSH_KEY="$(cat ~/.ssh/id_ed25519.pub)" -e SSH_KEY_NAME="$(whoami)" -p 22:22 -p 80:80 -p 9418:9418 -v repo:/var/lib/git/ rusian/gitolite-cgit
 ```
 
 ### Environment
@@ -26,6 +26,9 @@ $ docker run -e SSH_KEY="$(cat ~/.ssh/id_rsa.pub)" -e SSH_KEY_NAME="$(whoami)" -
 - `SSH_KEY_NAME`: Name of gitolite admin
 - `CGIT_CLONE_PREFIX`: cgit clone prefix to display on each repository. For example: `https://git.example.com`, the clone URL should be: `ssh://git@example.com`
 - `CGIT_ROOT_TITLE`: Text printed as heading on the repository index page. Default value: "Git Repository Browser".
+- `CGIT_DESC`: Add description to cgit
+- `CGIT_SNAPSHOT`: Snapshot tarball.
+
 ### Exposed ports
 
 - Port 22: for SSH clone
@@ -67,15 +70,18 @@ SSH_KEY_NAME=<your gitolite name>
 #
 # Cgit options
 #
-CGIT_CLONE_PREFIX=<cgit clone prefix like: ssh://git@foo.org git://foo.org >
 CGIT_ROOT_TITLE=Git Repository Browser
+CGIT_DESC=a fast webinterface for the git dscm
+CGIT_CLONE_PREFIX=http://<YOUR-DOMAIN> ssh://git@<YOUR-DOMAIN>
+
+CGIT_SNAPSHOT=tar.gz tar.bz2 tar.xz
 ```
 
 For convience, I create a script for user who use the public key and name from the host running Docker:
 
 ```bash
 # change ssh_key, ssh_key_name to reflect your current setup
-SSH_KEY=$(cat ~/.ssh/id_rsa.pub)
+SSH_KEY=$(cat ~/.ssh/id_ed25519.pub)
 SSH_KEY_NAME=$(whoami)
 
 sed -i.bak \
@@ -144,7 +150,7 @@ volumes:
 ## Build docker image
 
 ```console
-$ git clone https://git.sr.ht/~heckyel/docker-gitolite-cgit
+$ git clone https://git.sr.ht/~heckyel/gitolite-cgit-docker
 ```
 
 ```console
