@@ -154,7 +154,7 @@ $ git clone https://git.sr.ht/~heckyel/gitolite-cgit-docker
 ```
 
 ```console
-$ cd docker-gitolite-cgit
+$ cd gitolite-cgit-docker/gitolite-cgit
 ```
 
 ```console
