@@ -199,19 +199,34 @@ EOF
     root /usr/share/webapps/cgit;
     try_files \$uri @cgit;
 
-    location ~* ^.+\.(css|png|ico)$ {
-      expires 30d;
+    location @cgit {
+      include             fastcgi_params;
+
+      # Path to the CGI script that comes with cgit
+      fastcgi_param        SCRIPT_FILENAME \$document_root/cgit.cgi;
+
+      fastcgi_param       PATH_INFO       \$uri;
+      fastcgi_param       QUERY_STRING    \$args;
+      fastcgi_param       QUERY_INFO      \$uri;
+      fastcgi_param       HTTP_HOST       \$server_name;
+
+      # Path to the socket file that is created/used by fcgiwrap
+      fastcgi_pass        unix:/run/fcgiwrap/fcgiwrap.socket;
     }
 
-    location / {
-      index cgit.cgi;
-      fastcgi_param SCRIPT_FILENAME \$document_root/cgit.cgi;
-      fastcgi_pass unix:/run/fcgiwrap/fcgiwrap.socket;
-      fastcgi_param HTTP_HOST \$server_name;
-      fastcgi_param PATH_INFO \$uri;
-      fastcgi_param QUERY_INFO \$uri;
-      include "fastcgi_params";
-    }
+    # Enable compression for JS/CSS/HTML, for improved client load times.
+    # It might be nice to compress JSON/XML as returned by the API, but
+    # leaving that out to protect against potential BREACH attack.
+    gzip              on;
+    gzip_vary         on;
+
+    gzip_types        # text/html is always compressed by HttpGzipModule
+                      text/css
+                      application/javascript
+                      font/truetype
+                      font/opentype
+                      application/vnd.ms-fontobject
+                      image/svg+xml;
   }
 EOF
 
