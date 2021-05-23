@@ -288,7 +288,7 @@ div#cgit .markdown-body h1 a.toclink, div#cgit .markdown-body h2 a.toclink, div#
     border: none;
 }
 ''')
-sys.stdout.write(HtmlFormatter(style='pastie').get_style_defs('.highlight'))
+sys.stdout.write(HtmlFormatter(style='monokai').get_style_defs('.highlight'))
 sys.stdout.write('''
 </style>
 ''')
