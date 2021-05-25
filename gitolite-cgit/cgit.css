@@ -7,7 +7,7 @@
     --cscroll:              #0062cc;
     --bscrooll:             #9E9E9E;
     --text:                 #FFF;
-    --text-secundary:       #333;
+    --text-secondary:       #333;
     --h1:                   #FFF;
     --h2:                   #FFF;
     --h3:                   #FFF;
@@ -219,7 +219,7 @@ color: var(--text);
 }
 
 table.list td .decoration > a {
-color: var(--text-secundary);
+color: var(--text-secondary);
 }
 
 table.list td a.ls-dir {
@@ -590,7 +590,7 @@ font-size: 80%;
 color: #ccc;
 }
 table.list td a.branch-deco {
-color: var(--text-secundary);
+color: var(--text-secondary);
 }
 .decoration a.branch-deco {
 color: #444;
@@ -605,7 +605,7 @@ background-color: #00ff00;
 border: solid 1px #00ff00;
 }
 table.list td a.tag-deco {
-color: var(--text);
+color: var(--text-secondary);
 }
 a.tag-annotated-deco {
 margin: 0px 0.5em;
