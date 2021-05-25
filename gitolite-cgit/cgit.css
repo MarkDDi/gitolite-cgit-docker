@@ -484,7 +484,6 @@ border-collapse: unset;
 background-color: var(--bg-strong);
 padding: 0.5rem;
 margin: .5rem 0;
-text-overflow: ellipsis;
 overflow-x: auto;
 }
 
