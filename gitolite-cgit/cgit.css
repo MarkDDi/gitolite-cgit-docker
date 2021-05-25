@@ -1,5 +1,6 @@
 :root {
-    --background:           #333;
+    --background:           #212529;
+    --bg-strong:            #131618;
     --text:                 #FFF;
     --text-hover:           #60b0ff;
     --text-secundary:       #333;
@@ -383,9 +384,12 @@ padding-top: 1.5em;
 }
 
 table.diffstat {
-border-collapse: collapse;
-border: solid 1px var(--text);
-background-color: var(--background);
+border-collapse: unset;
+background-color: var(--bg-strong);
+text-overflow: ellipsis;
+overflow: hidden;
+padding: .5rem;
+margin: .5rem 0;
 }
 
 table.diffstat th {
@@ -453,6 +457,12 @@ padding-top: 0.5em;
 
 table.diff {
 width: 100%;
+border-collapse: unset;
+background-color: var(--bg-strong);
+padding: 0.5rem;
+margin: .5rem 0;
+text-overflow: ellipsis;
+overflow: hidden;
 }
 
 table.diff td {
