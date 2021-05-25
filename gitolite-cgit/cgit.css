@@ -1,8 +1,12 @@
 :root {
     --background:           #212529;
     --bg-strong:            #131618;
+    --brand-color:          #0062cc;
+    --brand-lg-color:       #3395ff;
+    --add-color:            #00e676;
+    --cscroll:              #0062cc;
+    --bscrooll:             #9E9E9E;
     --text:                 #FFF;
-    --text-hover:           #60b0ff;
     --text-secundary:       #333;
     --h1:                   #FFF;
     --h2:                   #FFF;
@@ -10,6 +14,22 @@
     --h4:                   #FFF;
     --h5:                   #FFF;
     --h6:                   #FFF;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cscroll) var(--bscrooll);
+}
+*::-webkit-scrollbar {
+    width: 12px;
+}
+*::-webkit-scrollbar-track {
+    background: var(--bscrooll);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--cscroll);
+    border-radius: 20px;
+    border: 3px solid var(--bscrooll);
 }
 
 body, table, form {
@@ -26,7 +46,7 @@ padding: 7px;
 }
 
 a {
-color: #60b0ff;
+color: var(--brand-lg-color);
 text-decoration: none;
 }
 
@@ -80,7 +100,7 @@ padding-left: 10px;
 }
 
 table.tabs {
-border-bottom: solid 3px #60b0ff;
+border-bottom: solid 3px var(--brand-color);
 border-collapse: collapse;
 margin-top: 2em;
 margin-bottom: 0px;
@@ -100,7 +120,7 @@ font-size: 110%;
 
 table.tabs td a.active {
 color: var(--text);
-background-color: #60b0ff;
+background-color: var(--brand-color);
 }
 
 table.tabs td.form {
@@ -122,13 +142,13 @@ div.path {
 margin: 0px;
 padding: 5px 2em 2px 2em;
 color: var(--text);
-background-color: #266584;
+background-color: var(--bg-strong);
 }
 
 div.content {
 margin: 0px;
 padding: 2em;
-border-bottom: solid 3px #60b0ff;
+border-bottom: solid 3px var(--brand-color);
 }
 
 
@@ -208,7 +228,7 @@ color: var(--text);
 }
 
 table.list td a:hover {
-color: var(--text-hover);
+color: var(--brand-lg-color);
 }
 
 img {
@@ -277,8 +297,10 @@ width: 10em;
 }
 
 table.blob {
+display: block;
 margin-top: 0.5em;
 border-top: solid 1px var(--text);
+overflow-x: auto;
 }
 
 table.blob td.lines {
@@ -416,7 +438,7 @@ color: red;
 }
 
 table.diffstat td.add a {
-color: green;
+color: var(--add-color);
 }
 
 table.diffstat td.del a {
@@ -456,13 +478,14 @@ padding-top: 0.5em;
 }
 
 table.diff {
+display: block;
 width: 100%;
 border-collapse: unset;
 background-color: var(--bg-strong);
 padding: 0.5rem;
 margin: .5rem 0;
 text-overflow: ellipsis;
-overflow: hidden;
+overflow-x: auto;
 }
 
 table.diff td {
