@@ -4,8 +4,8 @@
     --brand-color:          #0062cc;
     --brand-lg-color:       #3395ff;
     --add-color:            #00e676;
-    --cscroll:              #0062cc;
-    --bscrooll:             #9E9E9E;
+    --cscroll:              #3395ff;
+    --bscroll:              transparent;
     --text:                 #FFF;
     --text-secondary:       #333;
     --h1:                   #FFF;
@@ -18,18 +18,18 @@
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--cscroll) var(--bscrooll);
+    scrollbar-color: var(--cscroll) var(--bscroll);
 }
 *::-webkit-scrollbar {
     width: 12px;
 }
 *::-webkit-scrollbar-track {
-    background: var(--bscrooll);
+    background: var(--bscroll);
 }
 *::-webkit-scrollbar-thumb {
     background-color: var(--cscroll);
     border-radius: 20px;
-    border: 3px solid var(--bscrooll);
+    border: 3px solid var(--bscroll);
 }
 
 body, table, form {
