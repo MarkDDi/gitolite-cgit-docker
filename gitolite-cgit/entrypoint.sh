@@ -162,7 +162,7 @@ snapshots=$CGIT_SNAPSHOT
 # Direct cgit to repository location managed by gitolite
 remove-suffix=0
 project-list=/var/lib/git/projects.list
-section-from-path=3
+section-from-path=1
 scan-path=/var/lib/git/repositories
 EOF
 
