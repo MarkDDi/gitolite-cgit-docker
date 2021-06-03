@@ -51,7 +51,7 @@ enable-index-owner=0
 enable-commit-graph=1
 
 # Allow http transport git clone
-enable-http-clone=0
+enable-http-clone=1
 
 # Show number of affected files per commit on the log pages
 enable-log-filecount=1
