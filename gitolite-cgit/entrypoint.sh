@@ -45,7 +45,7 @@ enable-git-config=1
 enable-index-links=1
 
 # Show owner
-enable-index-owner=0
+enable-index-owner=1
 
 # Enable ASCII art commit history graph on the log pages
 enable-commit-graph=1
