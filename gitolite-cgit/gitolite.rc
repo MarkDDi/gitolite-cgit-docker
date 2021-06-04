@@ -97,12 +97,12 @@
             'writable',
 
             # Uncomment or add new commands here.
-            # 'create',
-            # 'fork',
-            # 'mirror',
-            # 'readme',
-            # 'sskm',
-            # 'D',
+            'create',
+            'fork',
+            'mirror',
+            'readme',
+            'sskm',
+            'D',
 
         # These FEATURES are enabled by default.
 
