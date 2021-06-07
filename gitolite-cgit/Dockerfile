@@ -12,6 +12,8 @@ RUN set -xe \
     cgit nginx fcgiwrap spawn-fcgi \
     # python 3 pkg for highlight, about page
     py3-markdown py3-pygments \
+    # tarballs support
+    lzip xz zstd gzip bzip2 \
   # Create nginx folder
   && mkdir -p /run/nginx \
   # Clean up
