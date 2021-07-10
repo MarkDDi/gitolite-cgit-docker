@@ -1,6 +1,7 @@
 :root {
     --background:           #212529;
     --bg-strong:            #131618;
+    --p-color:              #131618;
     --brand-color:          #0062cc;
     --brand-lg-color:       #3395ff;
     --add-color:            #00e676;
@@ -613,7 +614,7 @@ padding: 0px 0.25em;
 background-color: #ffff00;
 border: solid 1px #ffff00;
 font-size: 12px;
-color: #131618;
+color: var(--p-color);
 }
 
 a.tag-deco {
