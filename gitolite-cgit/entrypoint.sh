@@ -15,6 +15,10 @@ if [ ! -f "/var/lib/git/.ssh/authorized_keys" ]; then
   rm "/tmp/$SSH_KEY_NAME.pub"
 fi
 
+if [ ! -d /etc/nginx/conf.d ]; then
+    install -d -m755 /etc/nginx/conf.d || true
+fi
+
 # Init container
 if [ ! -f /etc/nginx/conf.d/cgit.conf ]; then
   # enable random git password
@@ -189,10 +193,6 @@ EOF
   #  /usr/lib/cgit/filters/syntax-highlighting.sh
 
   # Nginx configuration
-  rm /etc/nginx/conf.d/default.conf || true
-
-  install -d -m755 /etc/nginx/conf.d || true
-
   cat > /etc/nginx/conf.d/cgit.conf <<- EOF
   server {
     listen 80 default_server;
