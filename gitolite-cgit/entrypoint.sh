@@ -15,12 +15,12 @@ if [ ! -f "/var/lib/git/.ssh/authorized_keys" ]; then
   rm "/tmp/$SSH_KEY_NAME.pub"
 fi
 
-if [ ! -d /etc/nginx/conf.d ]; then
-    install -d -m755 /etc/nginx/conf.d || true
+if [ ! -d /etc/nginx/http.d ]; then
+    install -d -m755 /etc/nginx/http.d || true
 fi
 
 # Init container
-if [ ! -f /etc/nginx/conf.d/cgit.conf ]; then
+if [ ! -f /etc/nginx/http.d/cgit.conf ]; then
   # enable random git password
   GIT_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32)
   echo "git:$GIT_PASSWORD" | chpasswd
@@ -193,7 +193,8 @@ EOF
   #  /usr/lib/cgit/filters/syntax-highlighting.sh
 
   # Nginx configuration
-  cat > /etc/nginx/conf.d/cgit.conf <<- EOF
+  rm -v /etc/nginx/http.d/default.conf || true
+  cat > /etc/nginx/http.d/cgit.conf <<- EOF
   server {
     listen 80 default_server;
     server_name localhost;
