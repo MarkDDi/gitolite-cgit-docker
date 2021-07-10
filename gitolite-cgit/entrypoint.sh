@@ -189,7 +189,9 @@ EOF
   #  /usr/lib/cgit/filters/syntax-highlighting.sh
 
   # Nginx configuration
-  rm /etc/nginx/conf.d/default.conf
+  rm /etc/nginx/conf.d/default.conf || true
+
+  install -d -m755 /etc/nginx/conf.d || true
 
   cat > /etc/nginx/conf.d/cgit.conf <<- EOF
   server {
