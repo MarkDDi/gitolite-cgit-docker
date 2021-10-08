@@ -160,3 +160,63 @@ $ cd gitolite-cgit-docker/gitolite-cgit
 ```console
 $ docker build --tag rusian/gitolite-cgit -f Dockerfile .
 ```
+
+## Extra
+
+Example of `gitolite-admin/conf/gitolite.conf`:
+
+```conf
+#-----------
+#  General
+#-----------
+@secret         =  gitolite-admin
+@hiddenrepo     =  gitolite-admin
+
+#-----------
+#  People
+#-----------
+@p-admin        =  paco
+@p-team         =  minoru
+
+#----------------------
+#  Repositories
+#----------------------
+repo @hiddenrepo
+     config cgit.ignore = 1
+
+repo @secret
+     - = cgit daemon
+     option deny-rules = 1
+
+repo @all
+     R          =  cgit daemon
+
+repo gitolite-admin
+     RW+        =  @p-admin
+
+repo science/numeral
+     RW+                        =  @p-admin
+     -   master develop         =  @p-team
+     -   refs/tags/v[0-9]       =  @p-team
+     RW+                        =  @p-team
+     desc                       =  "Repo paco files"
+     config gitweb.owner        =  paco
+
+repo documents/operators
+     RW+                        =  @p-admin
+     -   master develop         =  @p-team
+     -   refs/tags/v[0-9]       =  @p-team
+     RW+                        =  @p-team
+     desc                       =  "Repo minoru files"
+     config gitweb.owner        =  minoru
+
+#------------------------
+# Personal repositories
+#------------------------
+repo CREATOR/[a-zA-Z0-9].*
+     C                          =  @p-admin @p-team
+     RW+                        =  CREATOR
+     RW+                        =  @p-admin
+     R                          =  @all
+     config gitweb.owner        =  %GL_CREATOR
+```
