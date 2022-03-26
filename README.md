@@ -4,7 +4,7 @@
 
 [`rusian/gitolite-cgit`](https://hub.docker.com/r/rusian/gitolite-cgit) is a Docker image with `cgit` in dark-mode and `gitolite` running on top of `alpine` base image.
 
-![cgit](img/cgit.png)
+![cgit](img/img.png)
 
 ## Usage
 
