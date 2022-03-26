@@ -25,6 +25,7 @@ VOLUME [ "/etc/ssh" ]
 
 # Volume to store Gitolite data, used for Gitolite setup
 VOLUME [ "/var/lib/git" ]
+RUN chown -R git:git /var/lib/git
 
 EXPOSE 22 80 9418
 WORKDIR /var/lib/git
