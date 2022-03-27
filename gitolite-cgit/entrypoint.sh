@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+# if there is an existing /var/lib/git/ folder, it must
+# have been bind-mounted; we need to make sure it has the
+# correct access permissions.
+chown -R git:git /var/lib/git
+
 # Force security SSH parameters
 if [ -d /etc/ssh ]; then
    cat > /etc/ssh/sshd_config <<- EOF
