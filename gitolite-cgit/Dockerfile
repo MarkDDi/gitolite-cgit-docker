@@ -20,12 +20,16 @@ RUN set -xe \
   && rm -rf /var/cache/apk/* \
   && rm -rf /tmp/*
 
+# Make sure that the VOLUME intructions work on top of an existing directory which is already
+# accessible by the "git" user (would be root otherwise).
+RUN mkdir -p /var/lib/git
+RUN chown -R git:git /var/lib/git
+
 # Volume to store all ssh host key
 VOLUME [ "/etc/ssh" ]
 
 # Volume to store Gitolite data, used for Gitolite setup
 VOLUME [ "/var/lib/git" ]
-RUN chown -R git:git /var/lib/git
 
 EXPOSE 22 80 9418
 WORKDIR /var/lib/git
